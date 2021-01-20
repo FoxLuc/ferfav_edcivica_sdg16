@@ -1,0 +1,37 @@
+PRIMO DOCUMENTO
+
+Bribery incidence (% of firms experiencing at least one bribe payment request)
+
+Estimated (E): Estimated based on national data, such as surveys or administrative records, or other sources but on the same variable being estimated, produced by the international agency when country data for some year(s) is not available, when multiple sources exist, or when there are data quality issues;
+
+Global monitoring data (G): Produced on a regular basis by the designated agency for global monitoring, based on country data. There is no corresponding figure at the country level.
+
+Goal: 16
+Target 16.5
+Indicator 16.5.2
+
+SECONDO DOCUMENTO
+
+Primary government expenditures as a proportion of original approved budget (%)
+
+Country data (C): Produced and disseminated by the country (including data adjusted by the country to meet international standards);
+
+Global monitoring data (G): Produced on a regular basis by the designated agency for global monitoring, based on country data. There is no corresponding figure at the country level.
+
+Goal: 16
+Target 16.6
+Indicator 16.6.1
+
+TERZO DOCUMENTO
+
+Proportion of children under 5 years of age whose births have been registered with a civil authority (% of children under 5 years of age)
+
+Country data (C): Produced and disseminated by the country (including data adjusted by the country to meet international standards);
+
+Estimated (E): Estimated based on national data, such as surveys or administrative records, or other sources but on the same variable being estimated, produced by the international agency when country data for some year(s) is not available, when multiple sources exist, or when there are data quality issues;
+
+Global monitoring data (G): Produced on a regular basis by the designated agency for global monitoring, based on country data. There is no corresponding figure at the
+
+Goal: 16
+Target 16.9
+Indicator 16.9.1
