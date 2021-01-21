@@ -1,0 +1,3 @@
+fuori la cartella del progetto:  npm i -g @angular/cli
+dentro la cartella del progetto: npm i
+dentro la cartella del progetto: npm i mongodb
