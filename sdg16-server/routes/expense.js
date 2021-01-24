@@ -16,7 +16,7 @@ router.get('/', function (req, res, next) {
     });
 });
 
-router.get('/16.6.1-government-expenditures/:GeoAreaName', function (req, res, next) {
+router.get('/:GeoAreaName', function (req, res, next) {
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     GeoAreaName = req.params.GeoAreaName;
     client.connect(err => {

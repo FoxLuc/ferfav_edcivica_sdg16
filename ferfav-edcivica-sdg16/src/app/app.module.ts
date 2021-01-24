@@ -3,14 +3,22 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BriberyComponent } from './bribery/bribery.component';
+import { ExpenseComponent } from './expense/expense.component';
+import { BirthComponent } from './birth/birth.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BriberyComponent,
+    ExpenseComponent,
+    BirthComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
