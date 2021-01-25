@@ -1,0 +1,6 @@
+fuori la cartella del client "/workspace/ferfav_edcivica_sdg16":  npm i -g @angular/cli
+dentro la cartella del client "/workspace/ferfav_edcivica_sdg16/client": npm i
+
+dentro la cartella del server "/workspace/ferfav_edcivica_sdg16/server": npm i mongodb
+dentro la cartella del server "/workspace/ferfav_edcivica_sdg16/server": npm i express
+dentro la cartella del server "/workspace/ferfav_edcivica_sdg16/server": npm i
