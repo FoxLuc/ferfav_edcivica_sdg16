@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Sdg16ApiService } from '../sdg16-api.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-expense',
@@ -6,10 +8,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./expense.component.css']
 })
 export class ExpenseComponent implements OnInit {
+  query: string;
+  obs: Observable<Object>;
+  spese: any;
 
-  constructor() { }
+  constructor(public sdg_service: Sdg16ApiService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  submit(query: HTMLInputElement): void {
+
+    if (!query.value) {
+      return;
+    }
+    this.query = query.value;
+    if (this.query) {
+      console.log(`Il sistema ha considerato (${this.query}) come stringa non vuota`)
+      this.obs = this.sdg_service.getGeoAreaNameExpense(this.query);
+      this.obs.subscribe((data) => { this.spese = data; console.log(this.spese) });
+    } else {
+      console.log(`Il sistema ha considerato (${this.query}) come stringa vuota o null`)
+      this.obs = this.sdg_service.getExpense();
+      this.obs.subscribe((data) => { this.spese = data; console.log(this.spese) });
+    }
+
   }
 
 }
