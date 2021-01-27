@@ -7,13 +7,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { BriberyComponent } from './bribery/bribery.component';
 import { ExpenseComponent } from './expense/expense.component';
 import { BirthComponent } from './birth/birth.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BriberyComponent,
     ExpenseComponent,
-    BirthComponent
+    BirthComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
