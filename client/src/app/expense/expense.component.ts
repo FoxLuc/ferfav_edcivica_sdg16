@@ -14,14 +14,16 @@ export class ExpenseComponent implements OnInit {
 
   constructor(public sdg_service: Sdg16ApiService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   submit(query: HTMLInputElement): void {
 
     if (!query.value) {
       return;
     }
-    this.query = query.value;
+    //pulizia query
+    this.query = query.value.trim().replace(" ", "");
+    console.log(this.query);
     if (this.query) {
       console.log(`Il sistema ha considerato (${this.query}) come stringa non vuota`)
       this.obs = this.sdg_service.getGeoAreaNameExpense(this.query);

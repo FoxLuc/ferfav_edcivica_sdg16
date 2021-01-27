@@ -21,13 +21,14 @@ export class BirthComponent implements OnInit {
     if (!query.value) {
       return;
     }
-    this.query = query.value;
+
+    //pulizia query
+    this.query = query.value.trim().replace(" ", "");
+    console.log(this.query);
     if (this.query) {
-      console.log(`Il sistema ha considerato (${this.query}) come stringa non vuota`)
       this.obs = this.sdg_service.getGeoAreaNameBirth(this.query);
       this.obs.subscribe((data) => { this.dati_nascite = data; console.log(this.dati_nascite) });
-    } else {
-      console.log(`Il sistema ha considerato (${this.query}) come stringa vuota o null`)
+    }else{
       this.obs = this.sdg_service.getBirth();
       this.obs.subscribe((data) => { this.dati_nascite = data; console.log(this.dati_nascite) });
     }

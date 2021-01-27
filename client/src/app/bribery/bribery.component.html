@@ -1,5 +1,47 @@
-{{ corruzione | json }}
+<h1>Ricerca</h1>
+<p>Scrivi il nome di una nazione (in inglese).<br>
+Non scrivere niente se vuoi vedere tutta la lista di nazioni.</p>
 <p>
-	<input type="text" #newquery>
+	<input type="text" #newquery value=" ">
 	<button (click)="submit(newquery)">Ricerca</button>
 </p>
+<hr>
+<!--{{ dati_nascite | json }}-->
+<div *ngIf="corruzione">
+
+	<div *ngIf="!corruzione || corruzione.length==0">
+		Non è stata trovata alcuna nazione simile a '{{ query }}'
+	</div>
+
+  <div *ngIf="corruzione.length==1">
+    <h1>Risultati</h1>
+		<h3 class=".animated .fadeInUp">
+        {{corruzione[0].GeoAreaName}}<!--
+								<a [routerLink]="['/stato', stato.alpha2Code]">
+									{{ stato.name }}
+								</a>-->
+		</h3>
+	</div>
+
+	<div *ngIf="corruzione.length>1">
+		<h1>Risultati</h1>
+		<div class="row">
+			<div class="col-sm-6 col-md-4" *ngFor="let stato of corruzione">
+				<div class="card thumbnail">
+
+					<div class="content">
+
+						<div class="caption">
+							<h3 class=".animated .fadeInUp">
+                {{stato.GeoAreaName}}<!--
+								<a [routerLink]="['/stato', stato.alpha2Code]">
+									{{ stato.name }}
+								</a>-->
+							</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

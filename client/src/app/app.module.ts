@@ -8,6 +8,7 @@ import { BriberyComponent } from './bribery/bribery.component';
 import { ExpenseComponent } from './expense/expense.component';
 import { BirthComponent } from './birth/birth.component';
 import { HomeComponent } from './home/home.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
