@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const MongoClient = require('mongodb').MongoClient;
-const uri = 'mongodb+srv://Luca-Ferrari:SDG16_-_ProJect2020@clustersdg16.dnkc2.mongodb.net/ClusterSDG16?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://andrea-favullo :m0ng0D4RI0B4nF1@clustersdg16.dnkc2.mongodb.net/ClusterSDG16?retryWrites=true&w=majority';
 //^^Accesso al server^^
 
 //ESEMPIO: URL/birth
