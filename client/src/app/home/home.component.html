@@ -1,3 +1,9 @@
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
 <div class="container">
 <br>
 <h3 class="text-success">Benvenuti alla pagina sul Progetto SDG 16</h3>
@@ -10,9 +16,25 @@
 <br>
 <h3 class="text-success">Quale argomento vuoi esplorare?</h3>
 
-<a type="button" class="btn btn-outline-success btn-lg mb-2 mr-2" href="/expense">Spese del Governo</a>
-<a type="button" class="btn btn-outline-success btn-lg mb-2 mr-2" href="/bribery">Corruzione</a>
-<a type="button" class="btn btn-outline-success btn-lg mb-2 mr-2" href="/birth">Registrazione delle Nascite</a>
+<a type="button" class="btn btn-outline-success btn-lg mb-2 mr-2" data-toggle="tooltip" data-placement="top" data-html="true"
+title="Per migliorare l’economia del proprio paese, è necessario soprattutto un ottimo sistema per il management fiscale,
+con l’obiettivo di rendere il paese finanziariamente trasparente e responsabile,
+ci sono tre punti per farlo: il primo è quello di rendere pubblico le informazioni fiscali riguardanti il governo,
+secondo un'istituzione indipendente per il controllo dei fondi e che interroga il governo riguardante l’utilizzo dei fondi pubblici,
+il terzo è la previsione fiscale futura dello status del budget, questo anche per evitare speculazioni generali
+riguardo l’uso improprio dei fondi (che se fossero vere, l’istituzione avrebbe il compito di interrogare il governo al riguardo),
+ma anche semplicemente per capire se alcune spese possono risultare dannose all’integrità dei fondi." href="/expense">Spese del Governo</a>
+
+<a type="button" class="btn btn-outline-success btn-lg mb-2 mr-2" data-toggle="tooltip" data-placement="top" data-html="true"
+title="Il progetto SDG16 si impegna a ridurre la corruzione e l’abuso di potere nelle istituzioni,
+specialmente di quelle nazioni considerate in via di sviluppo o sottosviluppate.
+C’è ancora lavoro da fare per eradicare questi problemi.
+l’obiettivo più importante di SDG 16 è quello di rendere le istituzioni trasparenti e responsabili." href="/bribery">Corruzione</a>
+
+<a type="button" class="btn btn-outline-success btn-lg mb-2 mr-2" data-toggle="tooltip" data-placement="top" data-html="true"
+title="Le certificazioni di nascita forniscono ai neonati le prime riconoscenze legali per i loro diritti. Senza
+questa documentazione può essere negato ad un bambino l’accesso all’educazione
+o alla sanità pubblica come ospedali, vaccini e quant’altro." href="/birth">Registrazione delle Nascite</a>
 
 
 </div>
