@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class BriberyComponent implements OnInit {
   query: string;
   obs: Observable<Object>;
-  corruzione: any;
+  dati_corruzione: any;
 
   constructor(public sdg_service: Sdg16ApiService) { }
 
@@ -27,11 +27,11 @@ export class BriberyComponent implements OnInit {
     if (this.query) {
       console.log(`Il sistema ha considerato (${this.query}) come stringa non vuota`)
       this.obs = this.sdg_service.getGeoAreaNameBribery(this.query);
-      this.obs.subscribe((data) => { this.corruzione = data; console.log(this.corruzione) });
+      this.obs.subscribe((data) => { this.dati_corruzione = data; console.log(this.dati_corruzione) });
     } else {
       console.log(`Il sistema ha considerato (${this.query}) come stringa vuota o null`)
       this.obs = this.sdg_service.getBribery();
-      this.obs.subscribe((data) => { this.corruzione = data; console.log(this.corruzione) });
+      this.obs.subscribe((data) => { this.dati_corruzione = data; console.log(this.dati_corruzione) });
     }
 
   }

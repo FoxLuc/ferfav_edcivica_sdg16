@@ -8,7 +8,9 @@ const uri = 'mongodb+srv://Luca-Ferrari:SDG16_-_ProJect2020@clustersdg16.dnkc2.m
 //ESEMPIO: URL/birth
 router.get('/', function (req, res, next) { //Prende TUTTO 
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    
     res.setHeader('Access-Control-Allow-Origin', '*');
+
     client.connect(err => {
         const collection = client.db("SDG16DB").collection("16.9.1-birth-certification"); //Prende dalla collezione
         collection.find({}).toArray((err, result) => { //Prende secondo la query {} quindi nessun criterio
@@ -23,6 +25,9 @@ router.get('/', function (req, res, next) { //Prende TUTTO
 router.get('/:GeoAreaName', function (req, res, next) { //Prende Secondo il criterio GeoAreaName
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     GeoAreaName = req.params.GeoAreaName; //Variabile Parametro GeoAreaName
+    
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
     client.connect(err => {
         const collection = client.db("SDG16DB").collection("16.9.1-birth-certification"); //Prende dalla collezione
         collection.find({ 'GeoAreaName': `${GeoAreaName}` }).toArray((err, result) => { //Prende attraverso GeoAreaName

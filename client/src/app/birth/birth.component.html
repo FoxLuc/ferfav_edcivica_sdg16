@@ -1,58 +1,61 @@
-<!--Sezione Descrizione-->
-<div class="container">
-  <br>
-  <h3 class="text-success">Descrizione</h3>
-  <h6>Le certificazioni di nascita forniscono ai neonati le prime riconoscenze legali per i loro diritti.<br>
-    Senza questa documentazione può essere negato ad un bambino l’accesso all’educazione o alla sanità pubblica come
-    ospedali, vaccini e quant’altro.<br>
-    Il seguente grafico mostra la percentuale di bambini in possesso di un certificato di nascita nei paesi in via di
-    sviluppo e/o considerati sottosviluppati:<br><br>
-    <img
-      src="https://lh6.googleusercontent.com/PiIbmfVSCtPdbvE4pv9vFjoXpRIrGgCR4i7A2R5HK1fe623IWeowq-7QTQP6CAhn-suFG1UYQ_Kc48dPvqD6ym4YV0uX3lgnggn_5x1eD18EzN6EJkn_kcxvtwE3Gta9yMRvZwcX">
-  </h6>
-  <br>
-</div>
-
-<!--Sezione Ricerca-->
-<div class="container">
-  <br>
-  <h3 class="text-success">Ricerca</h3>
-  <h6>Scrivi il nome di una nazione (in inglese), per ottenere un grafico a torta sulle percentuali annuali di certificati di nascita di quella nazione.<br>
-    Non scrivere niente se vuoi vedere tutta la lista di nazioni.
-  </h6>
-  <p>
-    <input type="text" #newquery value=" ">
-    <button (click)="submit(newquery)">Ricerca</button>
-  </p>
-</div>
-
-<div class="container">
-  <hr>
-  <!--Sezione Risultati-->
-<div *ngIf="dati_nascite">
-  <!--Se la ricerca non produce risultati-->
-  <div *ngIf="!dati_nascite || dati_nascite.length==0">
-    Non è stata trovata alcuna nazione simile a '{{ query }}'
+<div class="nascite">
+  <!--Sezione Descrizione-->
+  <div class="container">
+    <br>
+    <h3 class="text-success">Descrizione</h3>
+    <h6>Le certificazioni di nascita forniscono ai neonati le prime riconoscenze legali per i loro diritti.<br>
+      Senza questa documentazione può essere negato ad un bambino l’accesso all’educazione o alla sanità pubblica come
+      ospedali, vaccini e quant’altro.<br>
+      Il seguente grafico mostra la percentuale di bambini in possesso di un certificato di nascita nei paesi in via di
+      sviluppo e/o considerati sottosviluppati:<br><br>
+      <img
+        src="https://lh6.googleusercontent.com/PiIbmfVSCtPdbvE4pv9vFjoXpRIrGgCR4i7A2R5HK1fe623IWeowq-7QTQP6CAhn-suFG1UYQ_Kc48dPvqD6ym4YV0uX3lgnggn_5x1eD18EzN6EJkn_kcxvtwE3Gta9yMRvZwcX">
+    </h6>
+    <br>
   </div>
-  <!--Se la ricerca produce un solo risultato-->
-  <div *ngIf="dati_nascite.length==1">
-    <h1>Risultati</h1>
-    <h3 class=".animated .fadeInUp">
-      {{dati_nascite[0].GeoAreaName}}
-    </h3>
+
+  <!--Sezione Ricerca-->
+  <div class="container">
+    <br>
+    <h3 class="text-success">Ricerca</h3>
+    <h6>Scrivi il nome di una nazione (in inglese), per ottenere un grafico a torta sulle percentuali annuali di certificati di nascita di quella nazione.<br>
+      Non scrivere niente se vuoi vedere tutta la lista di nazioni.
+    </h6>
+    <p>
+      <input type="text" #newquery value=" ">
+      <button (click)="submit(newquery)">Ricerca</button>
+    </p>
   </div>
-  <!--Se la ricerca produce più di un risultato-->
-  <div *ngIf="dati_nascite.length>1">
 
-    <h1>Risultati</h1>
-    <div class="row">
+  <div class="container">
+    <hr>
+    <!--Sezione Risultati-->
+  <div *ngIf="dati_nascite">
+    <!--Se la ricerca non produce risultati-->
+    <div *ngIf="!dati_nascite || dati_nascite.length==0">
+      Non è stata trovata alcuna nazione simile a '{{ query }}'
+    </div>
+    <!--Se la ricerca produce un solo risultato-->
+    <div *ngIf="dati_nascite.length==1">
+      <h1>Risultati</h1>
+      <h3 class=".animated .fadeInUp">
+        {{dati_nascite[0].GeoAreaName}}
+      </h3>
+    </div>
+    <!--Se la ricerca produce più di un risultato-->
+    <div *ngIf="dati_nascite.length>1">
 
-      <div class="col-sm-6 col-md-4" *ngFor="let stato of dati_nascite">
+      <h1>Risultati</h1>
+      <div class="row">
 
-        <div class="caption">
-          <h3 class=".animated .fadeInUp">
-            {{stato.GeoAreaName}}
-          </h3>
+        <div class="col-sm-6 col-md-4" *ngFor="let stato of dati_nascite">
+
+          <div class="caption">
+            <h3 class=".animated .fadeInUp">
+              {{stato.GeoAreaName}}
+            </h3>
+          </div>
+
         </div>
 
       </div>
