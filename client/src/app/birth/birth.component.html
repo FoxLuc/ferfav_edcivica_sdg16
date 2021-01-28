@@ -2,6 +2,8 @@
   <!--Sezione Descrizione-->
   <div class="container">
     <br>
+    <h1 class="text-success">Registrazioni delle Nascite</h1>
+    <br>
     <h3 class="text-success">Descrizione</h3>
     <h6>Le certificazioni di nascita forniscono ai neonati le prime riconoscenze legali per i loro diritti.<br>
       Senza questa documentazione può essere negato ad un bambino l’accesso all’educazione o alla sanità pubblica come
@@ -45,10 +47,12 @@
     <!--Se la ricerca produce più di un risultato-->
     <div *ngIf="dati_nascite.length>1">
 
-      <h1>Risultati</h1>
+      <h3 class="text-success">Ricerca</h3>
       <div class="row">
 
         <div class="col-sm-6 col-md-4" *ngFor="let stato of dati_nascite">
+
+          <google-chart [type]="piechart"></google-chart>
 
           <div class="caption">
             <h3 class=".animated .fadeInUp">

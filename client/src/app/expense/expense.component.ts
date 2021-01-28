@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class ExpenseComponent implements OnInit {
   query: string;
   obs: Observable<Object>;
-  spese: any;
+  dati_spese: any;
 
   constructor(public sdg_service: Sdg16ApiService) { }
 
@@ -27,11 +27,11 @@ export class ExpenseComponent implements OnInit {
     if (this.query) {
       console.log(`Il sistema ha considerato (${this.query}) come stringa non vuota`)
       this.obs = this.sdg_service.getGeoAreaNameExpense(this.query);
-      this.obs.subscribe((data) => { this.spese = data; console.log(this.spese) });
+      this.obs.subscribe((data) => { this.dati_spese = data; console.log(this.dati_spese) });
     } else {
       console.log(`Il sistema ha considerato (${this.query}) come stringa vuota o null`)
       this.obs = this.sdg_service.getExpense();
-      this.obs.subscribe((data) => { this.spese = data; console.log(this.spese) });
+      this.obs.subscribe((data) => { this.dati_spese = data; console.log(this.dati_spese) });
     }
 
   }

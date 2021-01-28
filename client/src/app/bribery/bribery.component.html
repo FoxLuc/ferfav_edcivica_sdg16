@@ -2,6 +2,8 @@
   <!--Sezione Descrizione-->
   <div class="container">
     <br>
+    <h1 class="text-success">Corruzione</h1>
+    <br>
     <h3 class="text-success">Descrizione</h3>
     <h6>il progetto SDG16 si impegna a ridurre la corruzione e l’abuso di potere nelle istituzioni, specialmente di quelle nazioni considerate in via di sviluppo o sottosviluppate.<br>
       C’è ancora lavoro da fare per eradicare questi problemi. Questo grafico mostra l’incidenza di abuso di ufficio nel mondo:<br><br>
@@ -42,7 +44,7 @@
     <!--Se la ricerca produce più di un risultato-->
     <div *ngIf="dati_corruzione.length>1">
 
-      <h1>Risultati</h1>
+      <h3 class="text-success">Ricerca</h3>
       <div class="row">
 
         <div class="col-sm-6 col-md-4" *ngFor="let stato of dati_corruzione">

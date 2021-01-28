@@ -1,47 +1,87 @@
-<h1>Ricerca</h1>
-<p>Scrivi il nome di una nazione (in inglese).<br>
-Non scrivere niente se vuoi vedere tutta la lista di nazioni.</p>
-<p>
-	<input type="text" #newquery value=" ">
-	<button (click)="submit(newquery)">Ricerca</button>
-</p>
-<hr>
-<!--{{ dati_nascite | json }}-->
-<div *ngIf="spese">
+<div class="nascite">
+  <!--Sezione Descrizione-->
+  <div class="container">
+    <br>
+    <h1 class="text-success">Spese del Governo</h1>
+    <br>
+    <h3 class="text-success">Descrizione</h3>
+    <h6>Per migliorare l’economia del proprio paese è necessario soprattutto un ottimo sistema per la gestione fiscale,
+      con l’obiettivo di rendere il paese finanziariamente trasparente e responsabile.<br>
+      Ci sono tre punti per farlo:
+      <ol>
+        <li>il primo è quello di rendere pubblico le informazioni fiscali riguardanti il governo</li>
+        <li>secondo un'istituzione indipendente per il controllo dei fondi e che interroga il governo riguardante
+          l’utilizzo dei fondi pubblici</li>
+        <li>il terzo è la previsione fiscale futura dello status del budget, questo anche per evitare speculazioni
+          generali riguardo l’uso improprio dei fondi (che se fossero vere, l’istituzione avrebbe il compito di
+          interrogare il governo al riguardo), ma anche semplicemente per capire se alcune spese possono risultare
+          dannose all’integrità dei fondi.</li>
+      </ol>
+      <br>
+      Alcune nazioni hanno dimostrato un uso parsimonioso e affidabile del proprio bilancio pubblico.<br>
+      La metodologia PEFA (Public Expenditure and Financial Accountability, tradotto: Spesa Pubblica e Responsabilità
+      Finanziaria) 2011 serve a misurare questa caratteristica,<br>
+      grazie ad essa sono stati registrati settantuno paesi di cui quasi la metà trentadue hanno migliorato la propria
+      valutazione.<br>
+      Mentre ventitre di queste nazioni hanno subito un declino della valutazione, dimostrando che il controllo del
+      bilancio pubblico richiede un impegno continuo da parte di istituzioni forti.<br><br>
 
-	<div *ngIf="!spese || spese.length==0">
-		Non è stata trovata alcuna nazione simile a '{{ query }}'
-	</div>
+      <img
+        style="margin-left: auto; margin-right: auto;"
+        src="https://lh4.googleusercontent.com/oglKbPfdHSCQl3zYQQo3xm_pL_MvZy8t0L3zDoSn1Cgknbn7PosakOu-9ZXGq9G0oH01kaG9QgyzPMuOddNZi_CBLdCBfqEWYT5E8QSE">
+    </h6>
+    <br>
+  </div>
 
-  <div *ngIf="spese.length==1">
-    <h1>Risultati</h1>
-		<h3 class=".animated .fadeInUp">
-        {{spese[0].GeoAreaName}}<!--
-								<a [routerLink]="['/stato', stato.alpha2Code]">
-									{{ stato.name }}
-								</a>-->
-		</h3>
-	</div>
+  <!--Sezione Ricerca-->
+  <div class="container">
+    <br>
+    <h3 class="text-success">Ricerca</h3>
+    <h6>Scrivi il nome di una nazione (in inglese), per ottenere un grafico a torta sulle percentuali annuali di
+      incidenza di abuso di ufficio di quella nazione.<br>
+      Non scrivere niente se vuoi vedere tutta la lista di nazioni.
+    </h6>
+    <p>
+      <input type="text" #newquery value=" ">
+      <button (click)="submit(newquery)">Ricerca</button>
+    </p>
+  </div>
 
-	<div *ngIf="spese.length>1">
-		<h1>Risultati</h1>
-		<div class="row">
-			<div class="col-sm-6 col-md-4" *ngFor="let stato of spese">
-				<div class="card thumbnail">
+  <div class="container">
+    <hr>
+    <!--Sezione Risultati-->
+    <div *ngIf="dati_spese">
+      <!--Se la ricerca non produce risultati-->
+      <div *ngIf="!dati_spese || dati_spese.length==0">
+        Non è stata trovata alcuna nazione simile a '{{ query }}'
+      </div>
+      <!--Se la ricerca produce un solo risultato-->
+      <div *ngIf="dati_spese.length==1">
+        <h1>Risultati</h1>
+        <h3 class=".animated .fadeInUp">
+          {{dati_spese[0].GeoAreaName}}
+        </h3>
+      </div>
+      <!--Se la ricerca produce più di un risultato-->
+      <div *ngIf="dati_spese.length>1">
 
-					<div class="content">
+        <h3 class="text-success">Ricerca</h3>
+        <div class="row">
 
-						<div class="caption">
-							<h3 class=".animated .fadeInUp">
-                {{stato.GeoAreaName}}<!--
-								<a [routerLink]="['/stato', stato.alpha2Code]">
-									{{ stato.name }}
-								</a>-->
-							</h3>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+          <div class="col-sm-6 col-md-4" *ngFor="let stato of dati_spese">
+
+            <div class="caption">
+              <h3 class=".animated .fadeInUp">
+                {{stato.GeoAreaName}}
+              </h3>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
