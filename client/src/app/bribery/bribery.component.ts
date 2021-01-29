@@ -22,7 +22,7 @@ export class BriberyComponent implements OnInit {
       return;
     }
     //pulizia query
-    this.query = query.value.trim().replace(" ", "");
+    this.query = query.value.trim();
     console.log(this.query);
     if (this.query) {
       console.log(`Il sistema ha considerato (${this.query}) come stringa non vuota`)

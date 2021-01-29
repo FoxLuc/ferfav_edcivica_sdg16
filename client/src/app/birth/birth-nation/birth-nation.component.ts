@@ -70,8 +70,4 @@ export class BirthNationComponent implements OnInit {
       }
     )
   }
-
-  back(): void {
-    this.location.back();
-  }
 }

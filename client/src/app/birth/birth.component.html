@@ -41,12 +41,12 @@
       <!--Se la ricerca produce più di un risultato-->
       <div *ngIf="dati_nascite.length>0">
 
-        <h3 class="text-success">Ricerca</h3>
+        <h3 class="text-success">Risultato della Ricerca:</h3>
         <div class="row">
 
-          <div class="col-sm-6 col-md-4 card" *ngFor="let stato of dati_nascite">
+          <div class="col-sm-6 col-md-4" *ngFor="let stato of dati_nascite">
 
-            <div class="card-body caption">
+            <div class="caption">
               <h3 class=".animated .fadeInUp">
                 <a [routerLink]="['/birth/nation', stato.GeoAreaName]">
 									{{ stato.GeoAreaName }}

@@ -55,24 +55,19 @@
       <div *ngIf="!dati_spese || dati_spese.length==0">
         Non è stata trovata alcuna nazione simile a '{{ query }}'
       </div>
-      <!--Se la ricerca produce un solo risultato-->
-      <div *ngIf="dati_spese.length==1">
-        <h1>Risultati</h1>
-        <h3 class=".animated .fadeInUp">
-          {{dati_spese[0].GeoAreaName}}
-        </h3>
-      </div>
       <!--Se la ricerca produce più di un risultato-->
-      <div *ngIf="dati_spese.length>1">
+      <div *ngIf="dati_spese.length>0">
 
-        <h3 class="text-success">Ricerca</h3>
+        <h3 class="text-success">Risultato della Ricerca:</h3>
         <div class="row">
 
           <div class="col-sm-6 col-md-4" *ngFor="let stato of dati_spese">
 
-            <div class="caption">
+            <div class="card-body caption">
               <h3 class=".animated .fadeInUp">
-                {{stato.GeoAreaName}}
+                <a [routerLink]="['/expense/nation', stato.GeoAreaName]">
+									{{ stato.GeoAreaName }}
+								</a>
               </h3>
             </div>
 

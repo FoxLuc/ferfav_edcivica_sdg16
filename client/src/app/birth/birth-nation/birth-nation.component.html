@@ -2,6 +2,8 @@
 <div>
   <h1 class="text-success">{{nazione.GeoAreaName}}</h1>
 
+  <p><b class="text-success">Descrizione: </b>Proporzione di bambini di età inferiore a 5 anni le cui nascite sono state registrate presso un'autorità civile (% di bambini di età inferiore a 5 anni)</p>
+
   <p><b class="text-success">Natura dei dati:</b> {{nazione.Nature}}<br>
     <b class="text-success">Descrizione:</b>
     <ng-container *ngIf="nazione.Nature=='C'; else NaturaE"> Dati che seguono linee standard internazionali sulla

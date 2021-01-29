@@ -1,1 +1,21 @@
-<p>expense-nation works!</p>
+<br>
+<div>
+  <h1 class="text-success">{{nazione.GeoAreaName}}</h1>
+
+  <p><b class="text-success">Descrizione:</b> Spese governative primarie in proporzione al budget originariamente approvato (%)</p>
+
+  <p><b class="text-success">Natura dei dati:</b> {{nazione.Nature}}<br>
+    <b class="text-success">Descrizione:</b>
+    <ng-container *ngIf="nazione.Nature=='C'; else NaturaE"> Dati che seguono linee standard internazionali sulla
+      formattazione dei dati forniti dalla nazione di analisi.</ng-container>
+    <ng-template #NaturaE>Dati stimati da informazioni amministrative, sondaggi o altri tipi di informazioni nazionali.
+      È prodotto dall'agenzia internazionale se tali informazioni sono inaccessibili per anni, quando esistono più
+      fonti, oppure si dubita della qualità dei dati.</ng-template>
+  </p>
+
+  <p><b class="text-success">Tipo di report:</b> {{nazione.ReportingType}}<br>
+    <b class="text-success">Descrizione:</b> Report prodotto da analisi regolari su dati di nazioni soggette ad
+    osservazioni globali.</p>
+
+  <google-chart [options]="options" [type]="type" [data]="data" [width]="width" [height]="height"></google-chart>
+</div>

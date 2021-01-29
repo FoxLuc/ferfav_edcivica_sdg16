@@ -23,7 +23,7 @@ export class BirthComponent implements OnInit {
     }
 
     //pulizia query
-    this.query = query.value.trim().replace(" ", "");
+    this.query = query.value.trim();
     console.log(`Query: "${this.query}"`);
     if (this.query) {
       this.obs = this.sdg_service.getGeoAreaNameBirth(this.query);
