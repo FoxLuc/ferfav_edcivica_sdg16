@@ -14,7 +14,7 @@ export class BirthComponent implements OnInit {
   dati_nascite: any;
 
   constructor(public sdg_service: Sdg16ApiService) { }
-  ngOnInit(): void {  }
+  ngOnInit(): void { }
 
   submit(query: HTMLInputElement): void {
 
@@ -24,11 +24,11 @@ export class BirthComponent implements OnInit {
 
     //pulizia query
     this.query = query.value.trim().replace(" ", "");
-    console.log(this.query);
+    console.log(`Query: "${this.query}"`);
     if (this.query) {
       this.obs = this.sdg_service.getGeoAreaNameBirth(this.query);
       this.obs.subscribe((data) => { this.dati_nascite = data; console.log(this.dati_nascite) });
-    }else{
+    } else {
       this.obs = this.sdg_service.getBirth();
       this.obs.subscribe((data) => { this.dati_nascite = data; console.log(this.dati_nascite) });
     }

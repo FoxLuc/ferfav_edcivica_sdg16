@@ -8,7 +8,7 @@ export class Sdg16ApiService {
 
   constructor(private http: HttpClient) { }
 
-  serverURL = `https://3000-b7b77fea-645e-4948-ab98-3a45bb411689.ws-eu03.gitpod.io`;
+  serverURL = `https://3000-ee7c9dc9-e0a9-48e8-b4fc-56740339993a.ws-eu03.gitpod.io`;
 
   getBribery(){ //Tutti senza criterio
     const url = `${this.serverURL}/bribery`
