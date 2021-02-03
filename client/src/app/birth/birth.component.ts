@@ -74,6 +74,11 @@ export class BirthComponent implements OnInit {
         [DatiNazioni.conversione(nazione.GeoAreaCode)]
       )
     }
+
+    //bottoni anni
+    //richiesta anno selezionato
+    //mostro nazioni in base all'anno
+
     this.columnNames = ['Nazione', 'Percentuale'];
     this.width = 1000;
     this.height = 500;
