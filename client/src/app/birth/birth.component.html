@@ -39,7 +39,12 @@
         Non è stata trovata alcuna nazione simile a '{{ query }}'
       </div>
       <!--Se la ricerca produce più di un risultato-->
-      <div *ngIf="dati_nascite.length>0">
+      <div *ngIf="research">
+
+        <h3 class="text-success">Grafico:</h3>
+        <p>
+          <google-chart [options]="options" [type]="type" [data]="data" [width]="width" [height]="height"></google-chart>
+        </p>
 
         <h3 class="text-success">Risultato della Ricerca:</h3>
         <div class="row">
