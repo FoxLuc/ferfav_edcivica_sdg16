@@ -41,11 +41,12 @@ router.get('/get-year/:Year', function (req, res, next) { //Prende Secondo il cr
 
     client.connect(err => {
         const collection = client.db("SDG16DB").collection("16.9.1-birth-certification"); //Prende dalla collezione
-        collection.find().project({ colonna_anno: 1 }).toArray((err, result) => { //Prende attraverso Year
+        collection.find().project({ Year_2014/* capire come fare la richiesta, chiedere al prof */: 1 }).toArray((err, result) => { //Prende attraverso Year
             if (err) console.log(err.message);
             else {
                 res.send(result);
                 console.log(result);
+                console.log(colonna_anno);
             }
             client.close();
         });
