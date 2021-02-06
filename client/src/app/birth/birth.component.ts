@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Sdg16ApiService } from '../sdg16-api.service';
 import { Observable } from 'rxjs';
 
-import { DatiNazioni } from './dati_nazioni.model'
+import { DatiNazioni } from '../dati_nazioni.model'
 
 @Component({
   selector: 'app-birth',
