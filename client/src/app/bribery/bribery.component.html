@@ -29,33 +29,45 @@
   <div class="container">
     <hr>
     <!--Sezione Risultati-->
-  <div *ngIf="dati_corruzione">
-    <!--Se la ricerca non produce risultati-->
-    <div *ngIf="!dati_corruzione || dati_corruzione.length==0">
-      Non è stata trovata alcuna nazione simile a '{{ query }}'
-    </div>
-    <!--Se la ricerca produce più di un risultato-->
-    <div *ngIf="dati_corruzione.length>0">
+    <div *ngIf="dati_corruzione">
+      <!--Se la ricerca non produce risultati-->
+      <div *ngIf="!dati_corruzione || dati_corruzione.length==0">
+        Non è stata trovata alcuna nazione simile a '{{ query }}'
+      </div>
+      <!--Se la ricerca produce più di un risultato-->
+      <div *ngIf="research">
 
-      <h3 class="text-success">Risultato della Ricerca:</h3>
-      <div class="row">
+        <h3 class="text-success">Grafico:</h3>
 
-        <div class="col-sm-6 col-md-4" *ngFor="let stato of dati_corruzione">
+        <!--Bottoni anni-->
+        <span *ngFor="let anno of ['2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018']">
+          <a type="button" (click)="submitYear(anno)" class="btn btn-outline-success btn-lg mb-2 mr-2">{{anno}}</a>
+        </span>
+        <!--Atlante-->
+        <p>
+          <google-chart [options]="options" [type]="type" [data]="data" [width]="width" [height]="height">
+          </google-chart>
+        </p>
 
-          <div class="card-body caption">
+        <h3 class="text-success">Risultato della Ricerca:</h3>
+        <div class="row">
+
+          <div class="col-sm-6 col-md-4" *ngFor="let stato of dati_corruzione">
+
+            <div class="caption">
               <h3 class=".animated .fadeInUp">
                 <a [routerLink]="['/bribery/nation', stato.GeoAreaName]">
-									{{ stato.GeoAreaName }}
-								</a>
+                  {{ stato.GeoAreaName }}
+                </a>
               </h3>
             </div>
+
+          </div>
 
         </div>
 
       </div>
 
     </div>
-
-  </div>
 
 </div>

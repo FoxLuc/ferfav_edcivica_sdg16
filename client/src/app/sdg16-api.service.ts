@@ -8,7 +8,7 @@ export class Sdg16ApiService {
 
   constructor(private http: HttpClient) { }
 
-  serverURL = `https://3000-azure-lamprey-a083wa6i.ws-eu03.gitpod.io`;
+  serverURL = `https://3000-b7b77fea-645e-4948-ab98-3a45bb411689.ws-eu03.gitpod.io`;
 
   getBribery(){ //Tutti senza criterio
     const url = `${this.serverURL}/bribery`
@@ -19,6 +19,13 @@ export class Sdg16ApiService {
 
   getGeoAreaNameBribery(GeoAreaName : string){ //Ricerca attraverso GeoAreaName
     const url = `${this.serverURL}/bribery/${GeoAreaName}`
+    let obs = this.http.get(url);
+    console.log(obs);
+    return obs;
+  }
+
+  getYearBribery(Year: string){ //Ricerca per Anno
+    const url = `${this.serverURL}/bribery/get-year/${Year}`
     let obs = this.http.get(url);
     console.log(obs);
     return obs;
@@ -38,6 +45,13 @@ export class Sdg16ApiService {
     return obs;
   }
 
+  getYearExpense(Year: string){ //Ricerca per Anno
+    const url = `${this.serverURL}/expense/get-year/${Year}`
+    let obs = this.http.get(url);
+    console.log(obs);
+    return obs;
+  }
+
   getBirth(){ //Tutti senza criterio
     const url = `${this.serverURL}/birth`
     let obs = this.http.get(url);
@@ -52,7 +66,7 @@ export class Sdg16ApiService {
     return obs;
   }
 
-  getYearBirth(Year: string){
+  getYearBirth(Year: string){ //Ricerca per Anno
     const url = `${this.serverURL}/birth/get-year/${Year}`
     let obs = this.http.get(url);
     console.log(obs);

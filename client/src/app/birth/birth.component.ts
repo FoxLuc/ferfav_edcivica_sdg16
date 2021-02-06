@@ -60,6 +60,7 @@ export class BirthComponent implements OnInit {
     this.research = true
   }
 
+  //richiesta anno
   submitYear(year: string): void {
     this.selected_year = year;
     console.log(`Year: "${year}"`);

@@ -8,9 +8,6 @@ const uri = 'mongodb+srv://andrea-favullo:m0ng0D4RI0B4nF1@clustersdg16.dnkc2.mon
 //ESEMPIO: URL/expense
 router.get('/', function (req, res, next) { //Prende TUTTO
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-    
-    res.setHeader('Access-Control-Allow-Origin', '*');
-
     client.connect(err => {
         const collection = client.db("SDG16DB").collection("16.6.1-government-expenditures"); //Prende dalla collezione
         collection.find({}).toArray((err, result) => { //Prende secondo la query {} quindi nessun criterio
@@ -25,14 +22,33 @@ router.get('/', function (req, res, next) { //Prende TUTTO
 router.get('/:GeoAreaName', function (req, res, next) { //Prende Secondo il criterio GeoAreaName
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     GeoAreaName = req.params.GeoAreaName; //Variabile Parametro GeoAreaName
-    
-    res.setHeader('Access-Control-Allow-Origin', '*');
-
     client.connect(err => {
         const collection = client.db("SDG16DB").collection("16.6.1-government-expenditures"); //Prende dalla collezione
         collection.find({ 'GeoAreaName': `${GeoAreaName}` }).toArray((err, result) => { //Prende attraverso GeoAreaName
             if (err) console.log(err.message);
             else { res.send(result); console.log(result); }
+            client.close();
+        });
+    });
+});
+
+//ESEMPIO: URL/expense/get-year/2014
+router.get('/get-year/:Year', function (req, res, next) { //Prende Secondo il criterio Year
+    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    Year = req.params.Year; //Variabile Parametro Year
+
+    let colonna_anno = { GeoAreaCode: 1, GeoAreaName: 1 };
+    colonna_anno[`Year_${Year}`] = 1;
+
+    client.connect(err => {
+        const collection = client.db("SDG16DB").collection("16.6.1-government-expenditures"); //Prende dalla collezione
+        collection.find().project(colonna_anno).toArray((err, result) => { //Prende attraverso Year
+            if (err) console.log(err.message);
+            else {
+                res.send(result);
+                console.log(result);
+                console.log(colonna_anno);
+            }
             client.close();
         });
     });
