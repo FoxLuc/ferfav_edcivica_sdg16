@@ -8,7 +8,7 @@ export class Sdg16ApiService {
 
   constructor(private http: HttpClient) { }
 
-  serverURL = `https://3000-ac80ea4b-4b63-41f2-8192-5ac92e0f528f.ws-eu03.gitpod.io`;
+  serverURL = `https://3000-azure-lamprey-a083wa6i.ws-eu03.gitpod.io`;
 
   getBribery(){ //Tutti senza criterio
     const url = `${this.serverURL}/bribery`
@@ -47,6 +47,13 @@ export class Sdg16ApiService {
 
   getGeoAreaNameBirth(GeoAreaName : string){ //Ricerca attraverso GeoAreaName
     const url = `${this.serverURL}/birth/${GeoAreaName}`
+    let obs = this.http.get(url);
+    console.log(obs);
+    return obs;
+  }
+
+  getYearBirth(Year: string){
+    const url = `${this.serverURL}/birth/get-year/${Year}`
     let obs = this.http.get(url);
     console.log(obs);
     return obs;

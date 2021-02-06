@@ -37,11 +37,12 @@ router.get('/get-year/:Year', function (req, res, next) { //Prende Secondo il cr
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     Year = req.params.Year; //Variabile Parametro Year
 
-    colonna_anno = `Year_${Year}`;
+    let colonna_anno = { GeoAreaCode: 1, GeoAreaName: 1 };
+    colonna_anno[`Year_${Year}`] = 1;
 
     client.connect(err => {
         const collection = client.db("SDG16DB").collection("16.9.1-birth-certification"); //Prende dalla collezione
-        collection.find().project({ Year_2014/* capire come fare la richiesta, chiedere al prof */: 1 }).toArray((err, result) => { //Prende attraverso Year
+        collection.find().project(colonna_anno).toArray((err, result) => { //Prende attraverso Year
             if (err) console.log(err.message);
             else {
                 res.send(result);

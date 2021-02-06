@@ -25,17 +25,14 @@ export class BirthComponent implements OnInit {
 
   research: boolean = false;
 
-  constructor(public sdg_service: Sdg16ApiService) { }
-  ngOnInit(): void {
+  selected_year: string;
 
-    this.obs = this.sdg_service.getBirth();
-    this.obs.subscribe(
-      (data) => {
-        this.loadMap(data)
-      });
-  }
+  constructor(public sdg_service: Sdg16ApiService) { }
+  ngOnInit(): void { }
 
   submit(query: HTMLInputElement): void {
+
+    this.selected_year = "";
 
     if (!query.value) {
       return;
@@ -48,43 +45,62 @@ export class BirthComponent implements OnInit {
       this.obs = this.sdg_service.getGeoAreaNameBirth(this.query);
       this.obs.subscribe((data) => {
         this.dati_nascite = data;
+        this.loadMap(this.dati_nascite)
         console.log(this.dati_nascite)
       });
     } else {
       this.obs = this.sdg_service.getBirth();
       this.obs.subscribe((data) => {
         this.dati_nascite = data;
+        this.loadMap(this.dati_nascite)
         console.log(this.dati_nascite)
       });
     }
 
     this.research = true
+  }
 
+  submitYear(year: string): void {
+    this.selected_year = year;
+    console.log(`Year: "${year}"`);
+    if (!year) {
+      return;
+    }
+    this.obs = this.sdg_service.getYearBirth(year);
+    this.obs.subscribe((data) => {
+      this.dati_nascite = data;
+      this.loadMap(this.dati_nascite)
+      console.log(this.dati_nascite)
+    });
   }
 
   loadMap(data) {
+
+    //configurazione mappa
     this.dati_nascite = data;
     this.title = 'Certificati Nascite';
     this.type = 'GeoChart';
-
     this.data = [];
-
-    for (const nazione of this.dati_nascite) {
-      this.data.push(
-        [DatiNazioni.conversione(nazione.GeoAreaCode)]
-      )
-    }
-
-    //bottoni anni
-    //richiesta anno selezionato
-    //mostro nazioni in base all'anno
-
-    this.columnNames = ['Nazione', 'Percentuale'];
     this.width = 1000;
     this.height = 500;
-    this.options = {
+    this.options = {};
 
-    };
+    //disegno ciascuna nazione sulla mappa
+    for (const nazione of this.dati_nascite) {
+      let year = this.selected_year;
+      if (nazione[`Year_${year}`]) {
+        this.columnNames = ['Nazione', 'Percentuale'];
+        this.data.push(
+          [DatiNazioni.conversione(nazione.GeoAreaCode), nazione[`Year_${year}`]]
+        )
+      }
+      if(!year){
+        this.columnNames = ['Nazione'];
+        this.data.push(
+          [DatiNazioni.conversione(nazione.GeoAreaCode)]
+        )
+      }
+    }
   }
 
 }
